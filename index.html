@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Kampus - Portal Berita Akademik Terpercaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a237e;
+            --secondary: #283593;
+            --accent: #536dfe;
+            --light: #f5f5f5;
+            --dark: #212121;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+            color: var(--primary);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .top-bar {
+            background-color: var(--secondary);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .current-date {
+            font-weight: 600;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .main-header {
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .search-bar {
+            display: flex;
+            max-width: 300px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--accent);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 16px;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--light);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        /* Berita Utama */
+        .featured-news {
+            margin-bottom: 40px;
+        }
+        
+        .featured-article {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .featured-image {
+            height: 100%;
+            min-height: 300px;
+            background-color: var(--light-gray);
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .featured-content {
+            padding: 30px;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .meta i {
+            margin-right: 5px;
+        }
+        
+        .excerpt {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        /* Berita Terbaru */
+        .latest-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+        
+        .article-image {
+            height: 180px;
+            background-color: var(--light-gray);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .widget-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+            color: var(--primary);
+        }
+        
+        .popular-articles li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .popular-articles li:last-child {
+            border-bottom: none;
+        }
+        
+        .popular-articles a {
+            display: block;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .popular-articles a:hover {
+            color: var(--accent);
+        }
+        
+        .popular-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .categories li {
+            margin-bottom: 10px;
+        }
+        
+        .categories a {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .categories a:hover {
+            color: var(--accent);
+        }
+        
+        .category-count {
+            background-color: var(--light-gray);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .subscribe-form input {
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+        }
+        
+        /* Video Section */
+        .video-section {
+            margin-bottom: 40px;
+        }
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background-color: var(--dark);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            background-color: white;
+        }
+        
+        .video-content {
+            padding: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                min-height: 250px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links a {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .latest-articles {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="current-date">
+                    <i class="fas fa-calendar-alt"></i> Kamis, 5 Februari 2026
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <div class="logo-img">
+                        <i class="fas fa-graduation-cap" style="font-size: 60px; color: white;"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Jurnal Kampus</h1>
+                        <p>Portal Berita Akademik Terpercaya</p>
+                    </div>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari berita, artikel, atau jurnal...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="#">Berita</a></li>
+                    <li class="dropdown">
+                        <a href="#">Jurnal <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#">Jurnal Ilmiah</a>
+                            <a href="#">Jurnal Mahasiswa</a>
+                            <a href="#">Jurnal Penelitian</a>
+                            <a href="#">Arsip Jurnal</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Opini</a></li>
+                    <li><a href="#">Penelitian</a></li>
+                    <li><a href="#">Acara Kampus</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="category-tag">Fitur Utama</span>
+            <h2>Revolusi AI dalam Pendidikan Tinggi: Perguruan Tinggi Indonesia Siap Hadapi 2030</h2>
+            <p>Penelitian terbaru menunjukkan 85% universitas di Indonesia telah mengintegrasikan AI dalam proses pembelajaran. Simak bagaimana transformasi digital mengubah landscape pendidikan tinggi.</p>
+            <a href="#" class="btn btn-secondary">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Left Column: Main Articles -->
+            <div class="left-column">
+                <!-- Featured News -->
+                <section class="featured-news">
+                    <h2 class="section-title">Berita Utama</h2>
+                    
+                    <article class="featured-article">
+                        <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="featured-content">
+                            <span class="category-tag">Penelitian</span>
+                            <h3>Tim Riset UI Temukan Material Baru untuk Energi Terbarukan</h3>
+                            <div class="meta">
+                                <span><i class="fas fa-user"></i> Dr. Ahmad Wijaya</span>
+                                <span><i class="fas fa-clock"></i> 4 Feb 2026</span>
+                                <span><i class="fas fa-eye"></i> 2.4k dibaca</span>
+                            </div>
+                            <p class="excerpt">Material berbasis perovskite-hybrid ini diklaim mampu meningkatkan efisiensi panel surya hingga 45%. Temuan ini dipublikasikan dalam jurnal Nature Materials edisi Februari 2026.</p>
+                            <a href="#" class="btn btn-primary">Baca Lengkap</a>
+                        </div>
+                    </article>
+                </section>
+                
+                <!-- Latest News -->
+                <section class="latest-news">
+                    <h2 class="section-title">Berita Terbaru</h2>
+                    
+                    <div class="latest-articles">
+                        <article class="article-card">
+                            <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="article-content">
+                                <h4>Kampus Merdeka 2.0: Mahasiswa Bisa Ambil 60 SKS di Luar Prodi</h4>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 5 Feb 2026</span>
+                                    <span><i class="far fa-comment"></i> 42 komentar</span>
+                                </div>
+                                <p>Kebijakan baru Kemendikbudristek memungkinkan fleksibilitas lebih besar dalam pembelajaran...</p>
+                            </div>
+                        </article>
+                        
+                        <article class="article-card">
+                            <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="article-content">
+                                <h4>Konferensi Internasional Sains Data 2026 Digelar di ITB</h4>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 4 Feb 2026</span>
+                                    <span><i class="far fa-comment"></i> 28 komentar</span>
+                                </div>
+                                <p>Lebih dari 500 peneliti dari 40 negara hadir dalam konferensi yang membahas tren terkini AI dan big data...</p>
+                            </div>
+                        </article>
+                        
+                        <article class="article-card">
+                            <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="article-content">
+                                <h4>Beasiswa LPDP 2026 Dibuka, Kuota Ditambah 30%</h4>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 3 Feb 2026</span>
+                                    <span><i class="far fa-comment"></i> 56 komentar</span>
+                                </div>
+                                <p>Tahun ini tersedia 5.000 kursi beasiswa untuk jenjang S2 dan S3 dalam dan luar negeri...</p>
+                            </div>
+                        </article>
+                        
+                        <article class="article-card">
+                            <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="article-content">
+                                <h4>Jurnal Ilmiah UGM Terindeks Scopus, Jadi Rujukan Internasional</h4>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 2 Feb 2026</span>
+                                    <span><i class="far fa-comment"></i> 33 komentar</span>
+                                </div>
+                                <p>Jurnal "Indonesian Journal of Biotechnology" resmi terindeks di database Scopus...</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Right Column: Sidebar -->
+            <div class="sidebar">
+                <!-- Popular Articles -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Populer Minggu Ini</h3>
+                    <ul class="popular-articles">
+                        <li>
+                            <a href="#">Ranking QS 2026: 5 Universitas Indonesia Masuk Top 200 Dunia</a>
+                            <div class="popular-meta">
+                                <span>1 Feb 2026</span>
+                                <span>3.2k dibaca</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Penemuan Baru: Obat Kanker dari Ekstrak Tanaman Lokal</a>
+                            <div class="popular-meta">
+                                <span>30 Jan 2026</span>
+                                <span>2.8k dibaca</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Digitalisasi Perpustakaan Kampus: Dari Arsip ke Platform Digital</a>
+                            <div class="popular-meta">
+                                <span>28 Jan 2026</span>
+                                <span>2.1k dibaca</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Mahasiswa ITS Juara Kompetisi Robotika Internasional di Jepang</a>
+                            <div class="popular-meta">
+                                <span>25 Jan 2026</span>
+                                <span>1.9k dibaca</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Krisis Air Bersih: Solusi Inovatif dari Peneliti IPB</a>
+                            <div class="popular-meta">
+                                <span>22 Jan 2026</span>
+                                <span>1.7k dibaca</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Categories -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Kategori</h3>
+                    <ul class="categories">
+                        <li>
+                            <a href="#">Penelitian & Inovasi <span class="category-count">42</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Beasiswa & Pendanaan <span class="category-count">28</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Pendidikan & Kurikulum <span class="category-count">35</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Teknologi Kampus <span class="category-count">19</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Kolaborasi Internasional <span class="category-count">24</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Acara & Konferensi <span class="category-count">31</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Berlangganan Newsletter</h3>
+                    <p>Dapatkan update berita kampus langsung ke email Anda.</p>
+                    <form class="subscribe-form">
+                        <input type="text" placeholder="Nama Lengkap">
+                        <input type="email" placeholder="Alamat Email">
+                        <button type="submit" class="btn btn-primary">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Section -->
+        <section class="video-section">
+            <h2 class="section-title">Video Terkini</h2>
+            
+            <div class="video-container">
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <h4>Wawancara Eksklusif dengan Rektor UI tentang Visi Pendidikan 2030</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 4 Feb 2026</span>
+                            <span><i class="fas fa-play-circle"></i> 1.2k tayangan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <h4>Tur Virtual: Laboratorium Nanoteknologi Terbaru di ITB</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 2 Feb 2026</span>
+                            <span><i class="fas fa-play-circle"></i> 890 tayangan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <h4>Diskusi Panel: Masa Depan Jurnal Ilmiah di Era Digital</h4>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 31 Jan 2026</span>
+                            <span><i class="fas fa-play-circle"></i> 1.5k tayangan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Jurnal Kampus</h3>
+                    <p>Portal berita akademik terpercaya yang menyajikan informasi terkini seputar dunia pendidikan tinggi, penelitian, dan inovasi kampus di Indonesia.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Redaksi</a></li>
+                        <li><a href="#">Pedoman Pemberitaan</a></li>
+                        <li><a href="#">Kode Etik Jurnalistik</a></li>
+                        <li><a href="#">Karir</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#">Penelitian</a></li>
+                        <li><a href="#">Beasiswa</a></li>
+                        <li><a href="#">Pendidikan</a></li>
+                        <li><a href="#">Teknologi</a></li>
+                        <li><a href="#">Kolaborasi</a></li>
+                        <li><a href="#">Acara</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Gedung A, Jl. Pendidikan No. 123, Jakarta Pusat 10110</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(021) 1234-5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>redaksi@jurnalkampus.id</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Senin - Jumat: 08:00 - 17:00 WIB</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Jurnal Kampus. Semua hak cipta dilindungi. | Dibuat dengan <i class="fas fa-heart" style="color: #ff5252;"></i> untuk kemajuan pendidikan Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update current date
+            const currentDateElement = document.querySelector('.current-date');
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('id-ID', options);
+            currentDateElement.innerHTML = `<i class="fas fa-calendar-alt"></i> ${formattedDate}`;
+            
+            // Search functionality
+            const searchButton = document.querySelector('.search-bar button');
+            const searchInput = document.querySelector('.search-bar input');
+            
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    alert(`Mencari: "${searchTerm}" - Fungsi pencarian akan diimplementasikan pada versi lengkap.`);
+                    searchInput.value = '';
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = searchInput.value.trim();
+                    if (searchTerm) {
+                        alert(`Mencari: "${searchTerm}" - Fungsi pencarian akan diimplementasikan pada versi lengkap.`);
+                        searchInput.value = '';
+                    }
+                }
+            });
+            
+            // Newsletter subscription
+            const subscribeForm = document.querySelector('.subscribe-form');
+            subscribeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const nameInput = this.querySelector('input[type="text"]');
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (nameInput.value.trim() && emailInput.value.trim()) {
+                    alert(`Terima kasih ${nameInput.value}! Anda telah berlangganan newsletter Jurnal Kampus.`);
+                    nameInput.value = '';
+                    emailInput.value = '';
+                } else {
+                    alert('Harap isi nama dan email Anda.');
+                }
+            });
+            
+            // Play button functionality for videos
+            const playButtons = document.querySelectorAll('.play-button');
+            playButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Video akan diputar pada versi lengkap dengan integrasi pemutar video.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
